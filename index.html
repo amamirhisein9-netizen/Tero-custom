@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -5,41 +6,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TERO CUSTOM</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  padding: 24px;
-  background: #151722;
-  color: white;
-  font-family: sans-serif;
-  text-align: center;
-}
-h1 { color: #f4c542; }
-p { color: #c6c9d4; }
-button {
-  display: block;
-  width: 100%;
-  padding: 18px;
-  margin: 12px 0;
-  border: 0;
-  border-radius: 14px;
-  color: white;
-  font-size: 17px;
-  font-weight: bold;
-}
-.red { background: #bd3944; }
-.blue { background: #267fc0; }
-.green { background: #32834b; }
-.purple { background: #8146a8; }
+*{box-sizing:border-box}
+body{margin:0;padding:24px;background:#151722;color:white;
+font-family:sans-serif;text-align:center}
+h1{color:#f4c542}
+button,input{width:100%;padding:16px;margin:9px 0;
+border:0;border-radius:13px;font-size:16px}
+button{color:white;font-weight:bold}
+.red{background:#bd3944}
+.blue{background:#267fc0}
+.green{background:#32834b}
+.purple{background:#8146a8}
+.panel{max-width:430px;margin:auto}
+form{display:none;margin-top:20px;padding:16px;
+background:#242838;border-radius:16px}
+input{background:#fff;color:#111}
+.note{color:#c6c9d4;font-size:14px}
 </style>
 </head>
 <body>
+<div class="panel">
 <h1>🔥 TERO CUSTOM</h1>
-<p>پنل کاستوم کالاف دیوتی موبایل</p>
+<p class="note">پنل کاستوم کالاف دیوتی موبایل</p>
 
-<button class="red" onclick="alert('برای ثبت کاستوم، از ربات تلگرام استفاده کن.')">🎮 ثبت کاستوم جدید</button>
-<button class="blue" onclick="alert('اتصال به ربات در مرحله بعد انجام می‌شود.')">📢 ارسال کاستوم به کانال</button>
-<button class="green" onclick="alert('هنوز کاستومی ثبت نشده است.')">📋 مشاهده اطلاعات کاستوم</button>
-<button class="purple" onclick="alert('برای شروع دوباره از ربات استفاده کن.')">🔄 کاستوم جدید</button>
+<button class="red" onclick="openForm()">🎮 ثبت کاستوم جدید</button>
+<button class="blue" onclick="alert('اتصال به کانال در مرحله بعد انجام می‌شود.')">📢 ارسال به کانال</button>
+<button class="green" onclick="alert('هنوز اطلاعاتی ذخیره نشده است.')">📋 مشاهده کاستوم</button>
+<button class="purple" onclick="openForm()">🔄 کاستوم جدید</button>
+
+<form id="roomForm" onsubmit="previewRoom(event)">
+<h3>ثبت کاستوم</h3>
+<input id="roomId" placeholder="آیدی اتاق (Room ID)" required>
+<input id="roomPass" placeholder="رمز اتاق (Password)" required>
+<button class="green" type="submit">ثبت اطلاعات</button>
+<p class="note">این نسخه فقط پیش‌نمایش فرم است.</p>
+</form>
+</div>
+
+<script>
+function openForm(){
+  document.getElementById('roomForm').style.display='block';
+}
+function previewRoom(event){
+  event.preventDefault();
+  alert('فرم آماده است؛ ذخیره واقعی در مرحله بعد اضافه می‌شود.');
+}
+</script>
 </body>
 </html>
